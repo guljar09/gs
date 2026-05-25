@@ -1,20 +1,22 @@
 <!DOCTYPE html>
 <html>
+<head>
+<meta charset="UTF-8">
+<title>NCD</title>
+</head>
 
 <body>
 
-<h2>NCD WORKING ✔️</h2>
+<h2>NCD OK</h2>
 
 <button id="btn">TEST</button>
 
 <script>
+var btn = document.getElementById("btn");
 
-document.getElementById("btn").addEventListener("click", function () {
-
-    alert("OK ✔️");
-
-});
-
+btn.onclick = function() {
+    alert("WORKING");
+};
 </script>
 
 </body>
