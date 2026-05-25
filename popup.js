@@ -1,18 +1,16 @@
 window.onload = function () {
 
-    const btn = document.getElementById("btn");
+    var btn = document.getElementById("btn");
 
-    btn.addEventListener("click", async function () {
+    if (!btn) {
+        alert("Button Not Found");
+        return;
+    }
 
-        const tabs = await chrome.tabs.query({
-            active: true,
-            currentWindow: true
-        });
+    btn.onclick = function () {
 
-        chrome.tabs.sendMessage(tabs[0].id, {
-            action: "TEST"
-        });
+        alert("POPUP OK ✔️");
 
-    });
+    };
 
 };
