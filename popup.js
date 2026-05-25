@@ -1,16 +1,14 @@
-document.addEventListener("DOMContentLoaded", () => {
+window.onload = () => {
 
-    document.getElementById("btn").addEventListener("click", async () => {
+    const btn = document.getElementById("btn");
 
-        const tabs = await chrome.tabs.query({
-            active: true,
-            currentWindow: true
-        });
+    if (btn) {
 
-        chrome.tabs.sendMessage(tabs[0].id, {
-            action: "TEST"
-        });
+        btn.onclick = () => {
 
-    });
+            alert("WORKING ✔️");
 
-});
+        };
+    }
+
+};
