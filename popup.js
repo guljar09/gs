@@ -2,13 +2,15 @@ window.onload = () => {
 
     const btn = document.getElementById("btn");
 
-    if (btn) {
+    btn.onclick = async () => {
 
-        btn.onclick = () => {
+        const [tab] = await chrome.tabs.query({
+            active: true,
+            currentWindow: true
+        });
 
-            alert("WORKING ✔️");
-
-        };
-    }
-
+        chrome.tabs.sendMessage(tab.id, {
+            action: "TEST"
+        });
+    };
 };
