@@ -2,14 +2,16 @@ window.onload = function () {
 
     var btn = document.getElementById("btn");
 
-    if (!btn) {
-        alert("Button Not Found");
-        return;
-    }
+    btn.onclick = async function () {
 
-    btn.onclick = function () {
+        const tabs = await chrome.tabs.query({
+            active: true,
+            currentWindow: true
+        });
 
-        alert("POPUP OK ✔️");
+        chrome.tabs.sendMessage(tabs[0].id, {
+            action: "TEST"
+        });
 
     };
 
