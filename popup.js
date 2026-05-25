@@ -1,12 +1,16 @@
-document.getElementById("btn").addEventListener("click", async () => {
+document.addEventListener("DOMContentLoaded", () => {
 
-    const [tab] = await chrome.tabs.query({
-        active: true,
-        currentWindow: true
-    });
+    document.getElementById("btn").addEventListener("click", async () => {
 
-    chrome.tabs.sendMessage(tab.id, {
-        action: "TEST"
+        const tabs = await chrome.tabs.query({
+            active: true,
+            currentWindow: true
+        });
+
+        chrome.tabs.sendMessage(tabs[0].id, {
+            action: "TEST"
+        });
+
     });
 
 });
