@@ -1,4 +1,4 @@
-chrome.runtime.onMessage.addListener((req) => {
+chrome.runtime.onMessage.addListener(function(req) {
 
     if (req.action === "TEST") {
 
