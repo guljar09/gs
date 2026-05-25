@@ -1,16 +1,11 @@
-window.onload = () => {
+window.onload = function () {
 
     const btn = document.getElementById("btn");
 
-    btn.onclick = async () => {
+    btn.addEventListener("click", function () {
 
-        const [tab] = await chrome.tabs.query({
-            active: true,
-            currentWindow: true
-        });
+        alert("BUTTON OK ✔️");
 
-        chrome.tabs.sendMessage(tab.id, {
-            action: "TEST"
-        });
-    };
+    });
+
 };
