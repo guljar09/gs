@@ -2,8 +2,9 @@ chrome.runtime.onMessage.addListener((req) => {
 
     if (req.action === "TEST") {
 
-        alert("CONNECTED ✔️");
+        document.body.style.border = "5px solid red";
 
+        alert("Website Connected ✔️");
     }
 
 });
