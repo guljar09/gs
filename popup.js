@@ -4,21 +4,14 @@ window.onload = function () {
 
     btn.addEventListener("click", async function () {
 
-        try {
+        const tabs = await chrome.tabs.query({
+            active: true,
+            currentWindow: true
+        });
 
-            const tabs = await chrome.tabs.query({
-                active: true,
-                currentWindow: true
-            });
-
-            alert("TAB CONNECTED ✔️");
-
-        } catch (e) {
-
-            alert("ERROR");
-            console.log(e);
-
-        }
+        chrome.tabs.sendMessage(tabs[0].id, {
+            action: "TEST"
+        });
 
     });
 
