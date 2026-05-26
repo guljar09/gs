@@ -1,8 +1,26 @@
 {
   "manifest_version": 3,
-  "name": "NCD FINAL",
+  "name": "NCD Auto Fill",
   "version": "1.0",
+  "permissions": [
+    "activeTab",
+    "storage",
+    "scripting"
+  ],
+  "host_permissions": [
+    "https://ncd.mohfw.gov.in/*"
+  ],
   "action": {
     "default_popup": "popup.html"
-  }
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://ncd.mohfw.gov.in/*"
+      ],
+      "js": [
+        "content.js"
+      ]
+    }
+  ]
 }
